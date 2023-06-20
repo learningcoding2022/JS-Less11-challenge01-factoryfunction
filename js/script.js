@@ -36,3 +36,41 @@ clover.sleep();
 baxter.play();
 
 console.log(clover, baxter);
+
+/*change the value of the isTired property to 8 for Clover and 9 for Francine*/
+clover.isTired = 8;
+francine.isTired = 9;
+
+/*Create an array called allPets that includes all pet objects as elements*/
+const allPets = [
+    sora,
+    clover,
+    baxter,
+    cleo,
+    francine
+];
+
+/*log out allPets array to verify all five objects are showing up as array elements*/
+console.log(allPets);
+
+/*Create a function called showPets. Use petArray as an argument*/
+const showPets = function (petArray) {
+    /*empty list*/
+    pets.innerHTML = "";
+
+    for (let pet of petArray) {
+    let status = "ready to play!";
+    if (pet.isTired >= 7) {
+        status = "sleeping.";
+    }
+    const li = document.createElement("li");
+    li.innerHTML = `<span class="pet-name">${pet.name}</span> the ${pet.species} is ${status}`;
+    pets.append(li);
+    }
+};
+
+/*Add click event*/
+statusButton.addEventListener("click", function () {
+    showPets(allPets);
+}
+);
